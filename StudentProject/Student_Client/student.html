@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Student Information</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- jquery -->
+	<script src="js/jquery.js"></script>
+	<!-- bootstrap -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<!-- created -->
+	<script src="js/index.js"></script>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+	<div class="container-fluid">
+		<!-- This is header area -->
+			<div class="row header" id="header">
+				<div class="col-md-2">
+					<a href="http://localhost:8000/" target="_blank">
+					<img src="img/cu.png" class="img-rounded" alt="University Logo" width="100" height="100" class="uni_logo" id="uni_logo">
+					</a>
+				</div>
+				<div class="col-md-10">
+					<p></p>
+					<p></p>
+					<p></p>
+					<h1 style="text: 7px 20px 5px white;">University of Computer Studies, Myeik</h1>
+				</div>
+			</div>
+
+		<!-- This is body area -->
+		<div class="row" id="body" >
+			<div class="col-md-8"></div>
+			<div <div class="col-md-4">
+				<!-- This is menu area. -->
+				<a href="main.html"><li class="btn btn-info">Home</li></a>&nbsp;
+				<li onclick="ShowStudent();" class="btn btn-info">Student</li>&nbsp;
+				<a href="course.html"><li class="btn btn-info">Course</li></a>&nbsp;
+			</div>
+		</div>
+		<br>
+			<!-- This is Student Information -->
+			<div class="col-md-12" id="student">
+				<div class="row">
+					<div class="col-md-10">
+						<h1>Student Information</h1>
+					</div>
+					<div class="col-md-2">
+						<button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#studentRegisterModal">Register</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table table-striped" id="studentTable">
+							<thead>
+								<tr>
+									<th>Student ID</th>
+									<th>Student Name</th>
+									<th>Age</th>
+									<th>Gender</th>
+									<th>Address</th>
+									<th>Course</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody id="studentTableBody">
+								<thread>
+									<!-- Here is the student information that retrieves form student table -->
+								</thread>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		<!-- This is footer area -->
+		<div class="row footer" id="footer">
+			<div class="col-md-12">
+				<h5>Copyright &copy; University of Computer Studies, Myeik</h5>
+			</div>
+		</div>
+		
+		<!-- This is Modal area -->
+		<!-- Student Register Modal -->
+		<div class="modal fade" id="studentRegisterModal" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Student Register!</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form role="form">
+							<table class="table">
+								<tr>
+									<th><label>Student ID</label></th>
+									<td><input type="number" class="form-control" id="reStudentId" readonly></td>
+								</tr>
+								<tr>
+									<th><label>Student Name</label></th>
+									<td><input type="text" class="form-control" id="reStudentName"></td>
+								</tr>
+								<tr>
+									<th><label>Age</label></th>
+									<td><input type="number" min="0" max="120" class="form-control" id="reAge"></td>
+								</tr>
+								<tr>
+									<th><label>Gender</label></th>
+									<td><input type="text" class="form-control" id="reGender"></td>
+								</tr>
+								<tr>
+									<th><label>Address</label></th>
+									<td><input type="text" class="form-control" id="reAddress"></td>
+								</tr>
+								<tr>
+									<th><label>Course ID</label></th>
+									<td><input type="number" class="form-control" id="reCourseId"></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger btn-md" data-dismiss="modal" onclick="ClearStudentRegisterModal();">Cancle</button>
+						<button type="button" class="btn btn-success btn-md" onclick="InsertStudent();">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Student Update Modal -->
+		<div class="modal fade" id="studentUpdateModal" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Student Update!</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form role="form">
+							<table class="table">
+								<tr>
+									<th><label>Student ID</label></th>
+									<td><input type="number" class="form-control" id="u_student_id" readonly></td>
+								</tr>
+								<tr>
+									<th><label>Student Name</label></th>
+									<td><input type="text" class="form-control" id="u_student_name"></td>
+								</tr>
+								<tr>
+									<th><label>Age</label></th>
+									<td><input type="number" min="0" max="120" class="form-control" id="u_age"></td>
+								</tr>
+								<tr>
+									<th><label>Gender</label></th>
+									<td><input type="text" class="form-control" id="u_gender"></td>
+								</tr>
+								<tr>
+									<th><label>Address</label></th>
+									<td><input type="text" class="form-control" id="u_address"></td>
+								</tr>
+								<tr>
+									<th><label>Course ID</label></th>
+									<td><input type="number" class="form-control" id="course_id"></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning btn-md" data-dismiss="modal" onclick="ClearStudentUpdateModal();">Cancle</button>
+						<button type="button" class="btn btn-success btn-md" onclick="UpdateStudent();">Update</button>
+						<button type="button" class="btn btn-danger btn-md" onclick="DeleteStudent();">Delete</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
